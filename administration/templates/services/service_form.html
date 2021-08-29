@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block title %}Cadastrar Serviços{% endblock title%}
+
+{% block content %}
+<div class="card card-primary">
+    <div class="card-header">
+        <div class="card-title">Cadastro de serviço</div>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_form service_form %}
+            <button type="submit" class="btn btn-primary">
+                Cadastrar
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock content %}
