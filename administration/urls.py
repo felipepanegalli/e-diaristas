@@ -6,5 +6,6 @@ urlpatterns = [
     path("services/", list_service, name="list_service"),
     path("services/create", create_service, name="create_service"),
     path("services/edit/<int:id>", edit_service, name="edit_service"),
+    path("users/", list_user, name="list_user"),
     path("users/create", create_user, name="create_user"),
 ]
