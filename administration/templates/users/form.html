@@ -15,7 +15,19 @@
 
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="form-group">
+                        {% bootstrap_field user_form.first_name %}
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-group">
                         {% bootstrap_field user_form.username %}
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        {% bootstrap_field user_form.email %}
                     </div>
                 </div>
 
