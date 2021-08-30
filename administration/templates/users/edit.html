@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block title %}Atualizar Usuário{% endblock title%}
+
+{% block content %}
+<div class="card card-primary">
+    <div class="card-header">
+        <div class="card-title">Atualização de usuários</div>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            <div class="row">
+                {% csrf_token %}
+
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group">
+                        {% bootstrap_field user_form.first_name %}
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        {% bootstrap_field user_form.username %}
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        {% bootstrap_field user_form.email %}
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+                    <hr>
+                    <a href="{% url 'list_user' %}" class="btn btn-primary">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </a>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-check"></i> Atualizar
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -6,15 +6,32 @@
 {% block content %}
 <div class="card card-primary">
     <div class="card-header">
-        <div class="card-title">Cadastro de serviço</div>
+        <div class="card-title">
+            {% if request.resolver_match.url_name == 'create_service' %}
+            Cadastro de serviço
+            {% else %}
+            Editar serviço
+            {% endif %}
+        </div>
     </div>
     <div class="card-body">
         <form method="POST">
-            {% csrf_token %}
-            {% bootstrap_form service_form %}
-            <button type="submit" class="btn btn-primary">
-                Cadastrar
-            </button>
+            <div class="row">
+                <div class="col-12">
+                    {% csrf_token %}
+                    {% bootstrap_form service_form %}
+                </div>
+            </div>
+            <div class="col-12 text-right">
+                <hr>
+                <a href="{% url 'list_service' %}" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </a>
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-save"></i>
+                    {% if request.resolver_match.url_name == 'create_service' %}Cadastrar{% else %}Atualizar{% endif %}
+                </button>
+            </div>
         </form>
     </div>
 </div>
